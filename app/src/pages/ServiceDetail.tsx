@@ -340,8 +340,8 @@ const ServiceDetail = () => {
           />
         </div>
         {/* Gradient Overlays */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20 z-10`} />
-        <div className="absolute inset-0 bg-black/80 z-20" />
+        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20 z-0`} />
+        <div className="absolute inset-0 bg-black/80 z-0" />
         
         {/* Animated elements */}
         <motion.div
