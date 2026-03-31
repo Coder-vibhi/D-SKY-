@@ -208,8 +208,14 @@ const Portfolio = () => {
                   >
                     {/* Image Container */}
                     <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
-                      {/* Placeholder gradient */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-30`} />
+                      {/* Project Image */}
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {/* Placeholder gradient overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-10 transition-opacity`} />
                       
                       {/* Project number */}
                       <div className="absolute top-4 left-4 z-10">

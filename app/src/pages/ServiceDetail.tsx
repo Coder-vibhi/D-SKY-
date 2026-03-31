@@ -23,6 +23,7 @@ const serviceData: Record<string, {
   process: { step: number; title: string; desc: string }[];
   color: string;
   gradient: string;
+  image?: string;
 }> = {
   'web-development': {
     icon: Code,
@@ -53,7 +54,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Deployment', desc: 'Launching your solution' },
     ],
     color: 'from-pink to-rose-500',
-    gradient: 'from-pink/50 to-rose-500/50'
+    gradient: 'from-pink/50 to-rose-500/50',
+    image: '/images/web-dev.png'
   },
   'app-development': {
     icon: Smartphone,
@@ -84,7 +86,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Launch', desc: 'Deploying to app stores' },
     ],
     color: 'from-purple-500 to-violet-500',
-    gradient: 'from-purple-500/50 to-violet-500/50'
+    gradient: 'from-purple-500/50 to-violet-500/50',
+    image: '/images/app-dev.png'
   },
   'ui-ux-design': {
     icon: Palette,
@@ -115,7 +118,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Test', desc: 'Validating with users' },
     ],
     color: 'from-cyan-500 to-blue-500',
-    gradient: 'from-cyan-500/50 to-blue-500/50'
+    gradient: 'from-cyan-500/50 to-blue-500/50',
+    image: '/images/ui-ux.png'
   },
   'digital-marketing': {
     icon: Globe,
@@ -146,7 +150,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Report', desc: 'Measuring success' },
     ],
     color: 'from-emerald-500 to-teal-500',
-    gradient: 'from-emerald-500/50 to-teal-500/50'
+    gradient: 'from-emerald-500/50 to-teal-500/50',
+    image: '/images/digital-marketing.png'
   },
   'staffing': {
     icon: Users,
@@ -177,7 +182,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Placement', desc: 'Onboarding talent' },
     ],
     color: 'from-amber-500 to-orange-500',
-    gradient: 'from-amber-500/50 to-orange-500/50'
+    gradient: 'from-amber-500/50 to-orange-500/50',
+    image: '/images/hero-tech.png'
   },
   'bpo': {
     icon: Briefcase,
@@ -208,7 +214,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Launch', desc: 'Going live' },
     ],
     color: 'from-red-500 to-pink',
-    gradient: 'from-red-500/50 to-pink/50'
+    gradient: 'from-red-500/50 to-pink/50',
+    image: '/images/hero-tech.png'
   },
   'insurance': {
     icon: Shield,
@@ -239,7 +246,8 @@ const serviceData: Record<string, {
       { step: 5, title: 'Deploy', desc: 'Going live' },
     ],
     color: 'from-indigo-500 to-purple-500',
-    gradient: 'from-indigo-500/50 to-purple-500/50'
+    gradient: 'from-indigo-500/50 to-purple-500/50',
+    image: '/images/hero-tech.png'
   },
   'financial': {
     icon: Calculator,
@@ -270,7 +278,7 @@ const serviceData: Record<string, {
       { step: 5, title: 'Launch', desc: 'Deploying system' },
     ],
     color: 'from-green-500 to-emerald-500',
-    gradient: 'from-green-500/50 to-emerald-500/50'
+    gradient: 'from-green-500/50 to-emerald-500/50',
   }
 };
 
@@ -323,9 +331,17 @@ const ServiceDetail = () => {
     <main ref={sectionRef} className="relative pt-20">
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        {/* Background */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`} />
-        <div className="absolute inset-0 bg-black/80" />
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={service.image || '/images/hero-tech.png'} 
+            alt={service.title} 
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        {/* Gradient Overlays */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20 z-10`} />
+        <div className="absolute inset-0 bg-black/80 z-20" />
         
         {/* Animated elements */}
         <motion.div

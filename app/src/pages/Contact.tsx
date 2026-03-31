@@ -135,8 +135,15 @@ const Contact = () => {
     <main ref={sectionRef} className="relative pt-20">
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/hero-tech.png" 
+            alt="Contact Background" 
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950/90 to-black" />
+        </div>
         
         {/* Animated orbs */}
         <motion.div

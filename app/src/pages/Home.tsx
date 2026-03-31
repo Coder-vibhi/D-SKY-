@@ -131,6 +131,16 @@ const Home = () => {
         <ParticleBackground />
         <FloatingOrbs />
 
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/hero-tech.png" 
+            alt="Tech Background" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+        </div>
+
         {/* Grid overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{

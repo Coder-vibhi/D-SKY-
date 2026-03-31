@@ -21,6 +21,7 @@ interface ServiceCardProps {
     features: string[];
     color: string;
     gradient: string;
+    image?: string;
   };
   index: number;
 }
@@ -63,12 +64,21 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
           transition: 'transform 0.1s ease-out'
         }}
       >
-        <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
-          {/* Gradient background */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+        <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 h-full overflow-hidden flex flex-col">
+          {/* Service Image Background */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={service.image || '/images/hero-tech.png'} 
+              alt={service.title} 
+              className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+            />
+          </div>
+
+          {/* Gradient background overlay */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10`} />
           
           {/* Glow effect */}
-          <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} rounded-full blur-[80px] opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+          <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} rounded-full blur-[80px] opacity-0 group-hover:opacity-30 transition-opacity duration-500 z-10`} />
 
           {/* Icon */}
           <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 relative z-10`}>
@@ -79,7 +89,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
           <h3 className="text-2xl font-display font-bold text-white mb-4 relative z-10">
             {service.title}
           </h3>
-          <p className="text-white/50 font-body mb-6 relative z-10">
+          <p className="text-white/50 font-body mb-6 relative z-10 flex-grow">
             {service.description}
           </p>
 
@@ -136,7 +146,8 @@ const Services = () => {
       description: 'Custom websites and web applications built with modern technologies for optimal performance and user experience.',
       features: ['React & Next.js', 'Node.js Backend', 'E-commerce Solutions', 'CMS Integration'],
       color: 'from-pink to-rose-500',
-      gradient: 'from-pink/50 to-rose-500/50'
+      gradient: 'from-pink/50 to-rose-500/50',
+      image: '/images/web-dev.png'
     },
     {
       id: 'app-development',
@@ -145,7 +156,8 @@ const Services = () => {
       description: 'Native and cross-platform mobile applications that deliver seamless experiences across all devices.',
       features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Optimization'],
       color: 'from-purple-500 to-violet-500',
-      gradient: 'from-purple-500/50 to-violet-500/50'
+      gradient: 'from-purple-500/50 to-violet-500/50',
+      image: '/images/app-dev.png'
     },
     {
       id: 'ui-ux-design',
@@ -154,7 +166,8 @@ const Services = () => {
       description: 'User-centered design that combines aesthetics with functionality to create engaging digital experiences.',
       features: ['User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
       color: 'from-cyan-500 to-blue-500',
-      gradient: 'from-cyan-500/50 to-blue-500/50'
+      gradient: 'from-cyan-500/50 to-blue-500/50',
+      image: '/images/ui-ux.png'
     },
     {
       id: 'digital-marketing',
@@ -163,7 +176,8 @@ const Services = () => {
       description: 'Strategic marketing solutions that increase visibility, drive traffic, and convert visitors into customers.',
       features: ['SEO Optimization', 'Social Media', 'Content Strategy', 'PPC Campaigns'],
       color: 'from-emerald-500 to-teal-500',
-      gradient: 'from-emerald-500/50 to-teal-500/50'
+      gradient: 'from-emerald-500/50 to-teal-500/50',
+      image: '/images/digital-marketing.png'
     },
     {
       id: 'staffing',
@@ -172,7 +186,8 @@ const Services = () => {
       description: 'Flexible staffing solutions to help you find the right talent for your technology projects.',
       features: ['Contract Staffing', 'Permanent Placement', 'Team Augmentation', 'Skill Assessment'],
       color: 'from-amber-500 to-orange-500',
-      gradient: 'from-amber-500/50 to-orange-500/50'
+      gradient: 'from-amber-500/50 to-orange-500/50',
+      image: '/images/hero-tech.png'
     },
     {
       id: 'bpo',
@@ -181,7 +196,8 @@ const Services = () => {
       description: 'Business process outsourcing that helps you streamline operations and reduce costs.',
       features: ['Customer Support', 'Data Entry', 'Back Office', 'Technical Support'],
       color: 'from-red-500 to-pink',
-      gradient: 'from-red-500/50 to-pink/50'
+      gradient: 'from-red-500/50 to-pink/50',
+      image: '/images/hero-tech.png'
     },
     {
       id: 'insurance',
@@ -190,7 +206,8 @@ const Services = () => {
       description: 'Technology solutions tailored for the insurance industry to improve efficiency and customer service.',
       features: ['Policy Management', 'Claims Processing', 'CRM Solutions', 'Data Analytics'],
       color: 'from-indigo-500 to-purple-500',
-      gradient: 'from-indigo-500/50 to-purple-500/50'
+      gradient: 'from-indigo-500/50 to-purple-500/50',
+      image: '/images/hero-tech.png'
     },
     {
       id: 'financial',
@@ -199,7 +216,8 @@ const Services = () => {
       description: 'Digital transformation solutions for financial institutions to stay competitive in the modern market.',
       features: ['Fintech Solutions', 'Payment Gateways', 'Risk Management', 'Compliance'],
       color: 'from-green-500 to-emerald-500',
-      gradient: 'from-green-500/50 to-emerald-500/50'
+      gradient: 'from-green-500/50 to-emerald-500/50',
+      image: '/images/hero-tech.png'
     }
   ];
 

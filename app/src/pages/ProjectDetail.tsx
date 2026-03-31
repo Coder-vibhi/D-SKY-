@@ -275,9 +275,19 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Project Image */}
-      <section className="relative py-0">
-        <div className={`w-full h-[50vh] bg-gradient-to-br ${project.gradient} opacity-30`} />
+      {/* Project Image Banner */}
+      <section className="relative h-[60vh] overflow-hidden">
+        <img 
+          src={projectId ? `/images/${projectId}.jpg` : ''} 
+          alt={project.title}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            // Fallback if the specific image doesn't exist
+            (e.target as HTMLImageElement).src = `/images/project-${Object.keys(projectData).indexOf(projectId || '') + 1}.jpg`;
+          }}
+        />
+        {/* Overlay gradient to match design */}
+        <div className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80`} />
       </section>
 
       {/* Overview Section */}
